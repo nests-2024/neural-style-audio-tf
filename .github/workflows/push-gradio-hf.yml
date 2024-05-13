@@ -24,6 +24,8 @@ jobs:
           git lfs track *.wav
           git lfs track *.mp3
           git lfs checkout
+          git lfs fetch --all
+          git lfs pull
 
           cp -r ../README.md ../Dockerfile ../run_docker.sh ../requirements.txt ../*.py ../outs .
           sed -i -e 's/examples=example_audios,/#examples=example_audios,/g' -e 's/, server_name="0.0.0.0"//g' app.py
