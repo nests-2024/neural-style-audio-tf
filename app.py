@@ -6,8 +6,17 @@ from utils import read_audio_spectum, spectrum_to_audio
 
 
 example_audios = [
-    ["wavs/corpus/johntejada-1.wav", "wavs/target/beat-box-2.wav"],
-    ["wavs/songs/imperial.mp3", "wavs/songs/usa.mp3"]
+    ["wavs/corpus/johntejada-1.wav",
+     "wavs/target/beat-box-2.wav"],
+
+    ["wavs/songs/imperial.mp3",
+     "wavs/songs/usa.mp3"],
+
+    ["wavs/birds/BR_ALAGOAS_FOLIAGE/BR_AL_XI_2007_xeno_01_LIMPO.mp3",
+     "wavs/birds/MEX_ALTAMIRA_ORIOLE/MEX_Altamira_Oriole-ACelisM_01.mp3"],
+
+    ["wavs/birds/MEX_ALTAMIRA_ORIOLE/MEX_Altamira_Oriole-ACelisM_01.mp3",
+    "wavs/birds/BR_ALAGOAS_FOLIAGE/BR_AL_XI_2007_xeno_01_LIMPO.mp3"],
 ]
 
 
@@ -20,7 +29,7 @@ def do_transfer(content_path, style_path):
         style_spectrum,
         num_filters=4096,
         alpha=1e-2,
-        max_iterations=128
+        max_iterations=200
     )
     gen_wav = spectrum_to_audio(gen_spectrum)
 
