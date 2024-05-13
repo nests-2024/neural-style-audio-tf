@@ -20,15 +20,10 @@ jobs:
           git clone https://thiagohersan:$HFTOKEN@huggingface.co/spaces/thiagohersan/neural-style-audio-tf hf-gradio
           cd hf-gradio
 
-          git lfs install
-          git lfs track *.wav
-          git lfs track *.mp3
-          git lfs pull
-
-          cp -r ../README.md ../Dockerfile ../run_docker.sh ../requirements.txt ../*.py ../outs .
+          cp -r ../README.md ../Dockerfile ../run_docker.sh ../requirements.txt ../*.py .
           sed -i -e 's/examples=example_audios,/#examples=example_audios,/g' -e 's/, server_name="0.0.0.0"//g' app.py
 
-          git add README.md Dockerfile run_docker.sh requirements.txt *.py outs
+          git add README.md Dockerfile run_docker.sh requirements.txt *.py
 
           git config --local user.name "github-actions"
           git config --local user.email "github-actions@users.noreply.github.com"

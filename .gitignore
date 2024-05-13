@@ -1,6 +1,5 @@
 gradio_cached_examples/*
 outs/*
-!outs/examples
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

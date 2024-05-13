@@ -6,8 +6,8 @@ from utils import read_audio_spectum, spectrum_to_audio
 
 
 example_audios = [
-    ["outs/examples/johntejada-1.wav", "outs/examples/beat-box-2.wav"],
-    ["outs/examples/imperial.mp3", "outs/examples/usa.mp3"]
+    ["wavs/corpus/johntejada-1.wav", "wavs/target/beat-box-2.wav"],
+    ["wavs/songs/imperial.mp3", "wavs/songs/usa.mp3"]
 ]
 
 
