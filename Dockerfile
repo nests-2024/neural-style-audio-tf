@@ -31,7 +31,6 @@ RUN mkdir -p ${HOME}/app
 WORKDIR $HOME/app
 
 COPY --chown=user ./*.py $HOME/app/
-COPY --chown=user ./outs $HOME/app/outs
 
 CMD ["python", "app.py"]
 
