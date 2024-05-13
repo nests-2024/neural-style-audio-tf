@@ -19,18 +19,20 @@ jobs:
         run: |
           git clone https://thiagohersan:$HFTOKEN@huggingface.co/spaces/thiagohersan/neural-style-audio-tf hf-gradio
           cd hf-gradio
+
           git lfs install
           git lfs track *.wav
           git lfs track *.mp3
           git lfs checkout
-          git config --local user.name "github-actions"
-          git config --local user.email "github-actions@users.noreply.github.com"
-          echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-6)" >> $GITHUB_ENV
 
           cp -r ../README.md ../Dockerfile ../run_docker.sh ../requirements.txt ../*.py ../outs .
-
           sed -i -e 's/examples=example_audios,/#examples=example_audios,/g' -e 's/, server_name="0.0.0.0"//g' app.py
 
           git add README.md Dockerfile run_docker.sh requirements.txt *.py outs
+
+          git config --local user.name "github-actions"
+          git config --local user.email "github-actions@users.noreply.github.com"
+          GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-6)
+
           git commit -m "update gradio app: $GITHUB_SHA_SHORT" &> /dev/null
           git push origin main --force
