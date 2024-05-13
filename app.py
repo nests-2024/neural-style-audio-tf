@@ -20,7 +20,7 @@ def do_transfer(content_path, style_path):
         style_spectrum,
         num_filters=4096,
         alpha=1e-2,
-        max_iterations=256
+        max_iterations=128
     )
     gen_wav = spectrum_to_audio(gen_spectrum)
 
@@ -46,5 +46,4 @@ demo = gr.Interface(
     analytics_enabled=None
 )
 
-#demo.launch(show_api=False, server_name="0.0.0.0")
-demo.launch(show_api=False)
+demo.launch(show_api=False, server_name="0.0.0.0")
