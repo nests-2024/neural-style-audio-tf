@@ -8,7 +8,7 @@ def read_audio_spectum(filename, nfft=N_FFT):
     S = librosa.stft(x, n_fft=nfft)
     p = np.angle(S)
 
-    S = np.log1p(np.abs(S[:, :430]))  
+    S = np.log1p(np.abs(S[:, :430]))
     return S, sr
 
 

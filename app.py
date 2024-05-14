@@ -33,7 +33,11 @@ def do_transfer(content_path, style_path):
     )
     gen_wav = spectrum_to_audio(gen_spectrum)
 
-    return sr, gen_wav
+    content_slug = content_path.split("/")[-1].split(" ")[0].split(".")[0][:32].split("-0-")[0]
+    style_slug = style_path.split("/")[-1].split(" ")[0].split(".")[0][:32].split("-0-")[0]
+    filename = f"c-{content_slug}_s-{style_slug}.wav"
+
+    return (sr, gen_wav), filename
 
 demo = gr.Interface(
     title="Audio Style Transfer",
@@ -46,6 +50,7 @@ demo = gr.Interface(
     ],
     outputs=[
         gr.Audio(label="Output"),
+        gr.Textbox(label="filename")
     ],
 
     examples=example_audios,
