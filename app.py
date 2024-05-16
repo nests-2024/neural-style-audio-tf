@@ -60,4 +60,4 @@ demo = gr.Interface(
     analytics_enabled=None
 )
 
-demo.launch(show_api=False, server_name="0.0.0.0")
+demo.launch(show_api=False, server_name="0.0.0.0", server_port=7860)
